@@ -21,6 +21,11 @@ function validateGate(line: string): void {
   if (line.trim().length === 0) {
     throw new Error("gate violation: entry must not be only white space");
   }
+  if (line !== line.trim()) {
+    throw new Error(
+      "gate violation: entry must not start or end with white space",
+    );
+  }
   if (line.includes("\n") || line.includes("\r")) {
     throw new Error("gate violation: entry must be a single line");
   }
